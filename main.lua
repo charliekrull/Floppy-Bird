@@ -1,4 +1,5 @@
 --A Flappy Bird clone done to the tune of Harvard's CS50 game design course. Requires LOVE2D
+--https://opengameart.org/content/5-chiptunes-action background music source: Subspace Audio
 
 push = require 'push'
 Class = require 'class'
@@ -63,6 +64,21 @@ function love.load()
 
     love.graphics.setFont(flappyFont)
 
+    --initialize table of sounds
+    sounds = {
+        ['explosion'] = love.audio.newSource('explosion.wav', 'static'),
+        ['hurt'] = love.audio.newSource('hurt.wav', 'static'),
+        ['score'] = love.audio.newSource('score.wav', 'static'),
+
+        ['music'] = love.audio.newSource('bg_music.wav', 'static') --https://opengameart.org/content/5-chiptunes-action
+    }
+
+    --begin the music
+    sounds['music']:setLooping(true)
+    sounds['music']:play()
+
+
+    --seed RNGesus
     math.randomseed(os.time())
 
     --initilialize virtual resolution
