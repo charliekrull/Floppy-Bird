@@ -1,5 +1,6 @@
 --A Flappy Bird clone done to the tune of Harvard's CS50 game design course. Requires LOVE2D
 --https://opengameart.org/content/5-chiptunes-action background music source: Subspace Audio
+--https://opengameart.org/content/awards-arne16 award art: zwonky
 
 push = require 'push'
 Class = require 'class'
@@ -35,6 +36,8 @@ local GROUND_SCROLL_SPEED = 65
 
 local BACKGROUND_LOOPING_POINT = 413
 local GROUND_LOOPING_POINT = VIRTUAL_WIDTH
+
+
 
 
 
