@@ -27,6 +27,13 @@ end
 function PlayState:update(dt)
     
     if love.keyboard.wasPressed('p') then
+        sounds['pause']:play()
+        if sounds['music']:isPlaying() then
+            love.audio.pause(sounds['music'])
+
+        else
+            love.audio.play(sounds['music'])
+        end
         scrolling = not scrolling
     end
     

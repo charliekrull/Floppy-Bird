@@ -2,9 +2,9 @@
     The Score State, tells you how good you done did, and gives you a medal
 ]]
 
-local cup_bronze = love.graphics.newImage("cup_bronze.png")
-local cup_silver = love.graphics.newImage("cup_silver.png")
-local cup_gold = love.graphics.newImage("cup_gold.png")
+local bronzeMedal = love.graphics.newImage("bronze_medal.png")
+local silverMedal = love.graphics.newImage("silver_medal.png")
+local goldMedal = love.graphics.newImage("gold_medal.png")
 
 ScoreState = Class{__includes = BaseState}
 
@@ -20,15 +20,15 @@ function ScoreState:enter(params)
     self.goldScore = 9
     if self.score >= self.goldScore then
         self.award = 'gold'
-        self.awardImage = cup_gold
+        self.awardImage = goldMedal
 
     elseif self.score >= self.silverScore then
         self.award = 'silver'
-        self.awardImage = cup_silver
+        self.awardImage = silverMedal
 
     elseif self.score >= self.bronzeScore then
         self.award = 'bronze'
-        self.awardImage = cup_bronze
+        self.awardImage = bronzeMedal
 
     else
         self.award = 'none'
@@ -53,8 +53,8 @@ function ScoreState:render()
     love.graphics.printf('Score ' .. tostring(self.score), 0, VIRTUAL_HEIGHT - 50, VIRTUAL_WIDTH, 'center')
 
     if self.awardImage then
-        love.graphics.draw(self.awardImage, VIRTUAL_WIDTH / 2 - (self.awardImage:getWidth() * 4) / 2, 
-        VIRTUAL_HEIGHT / 2 - (self.awardImage:getHeight() * 4) / 2, 0, 4, 4)
+        love.graphics.draw(self.awardImage, VIRTUAL_WIDTH / 2 - (self.awardImage:getWidth()) / 2, 
+        VIRTUAL_HEIGHT / 2 - (self.awardImage:getHeight()) / 2)
     end
 
 

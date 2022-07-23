@@ -1,5 +1,5 @@
 --A Flappy Bird clone done to the tune of Harvard's CS50 game design course. Requires LOVE2D
---https://opengameart.org/content/5-chiptunes-action background music source: Subspace Audio
+--https://opengameart.org/content/4-chiptunes-adventure background music source: Subspace Audio
 --https://opengameart.org/content/awards-arne16 award art: zwonky
 
 push = require 'push'
@@ -73,7 +73,8 @@ function love.load()
         ['hurt'] = love.audio.newSource('hurt.wav', 'static'),
         ['score'] = love.audio.newSource('score.wav', 'static'),
 
-        ['music'] = love.audio.newSource('bg_music.wav', 'static') --https://opengameart.org/content/5-chiptunes-action
+        ['music'] = love.audio.newSource('music.wav', 'static'),
+        ['pause'] = love.audio.newSource('pause.wav', 'static')
     }
 
     --begin the music
