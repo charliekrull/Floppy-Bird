@@ -104,6 +104,9 @@ function love.load()
 
     --initiliaze input table
     love.keyboard.keysPressed = {}
+
+    --initialize mouse input table
+    love.mouse.buttonsPressed = {}
 end
 
 --defer resizing to push
@@ -120,8 +123,16 @@ function love.keypressed(key)
     end
 end
 
+function love.mousepressed(x, y, button)
+    love.mouse.buttonsPressed[button] = true
+end
+
 function love.keyboard.wasPressed(key)
     return love.keyboard.keysPressed[key]
+end
+
+function love.mouse.wasPressed(button)
+    return love.mouse.buttonsPressed[button]
 end
 
 --runs every frame
@@ -135,6 +146,7 @@ function love.update(dt)
 
     --reset input table
     love.keyboard.keysPressed = {}
+    love.mouse.buttonsPressed = {}
 end
 
 --render to screen

@@ -22,6 +22,7 @@ function PlayState:init()
 
     --initiliaze our last recorded Y value for gap placement
     self.lastY = -PIPE_HEIGHT + math.random(80) + 20
+    self.pauseIcon = love.graphics.newImage('pause_icon.png')
 end
 
 function PlayState:update(dt)
@@ -119,6 +120,11 @@ function PlayState:render()
 
     love.graphics.setFont(flappyFont)
     love.graphics.print('Score: ' .. tostring(self.score), 8, 8)
+
+    if not scrolling then --if paused, display icon
+        love.graphics.draw(self.pauseIcon, VIRTUAL_WIDTH / 2 - self.pauseIcon:getWidth() / 2,
+            VIRTUAL_HEIGHT / 2 - self.pauseIcon:getHeight() / 2)
+    end
 
     self.bird:render()
 end

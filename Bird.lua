@@ -35,7 +35,7 @@ function Bird:update(dt) --called every frame
     self.dy = self.dy + GRAVITY * dt
 
     --Patented Floppy flying code, love.keyboard.keysPressed and love.keyboard.wasPressed retained for future use
-    if love.keyboard.isDown('space') then 
+    if love.keyboard.isDown('space') or love.mouse.isDown(1) then 
         self.dy = self.dy + ANTIGRAVITY * dt
     end
 
